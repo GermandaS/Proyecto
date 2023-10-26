@@ -45,7 +45,86 @@
 
   <body>
     <div class="container">
+      <nav id="header" class="navbar navbar-expand-md fixed-top navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              id="header-logo"
+              src="img/automotora_vip_logo.png"
+              alt="AutoVIP"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#links"
+            aria-controls="links"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="links" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="ventas.html">Venta 0km</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ventas.html">Venta Usados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sobre-nosotros.html"
+                  >Sobre Nosotros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contacto-modal"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <h1>Ventas</h1>
+      <hr />
+      <div class="row">
+        <div class="col-2 card mt-3 bg-secondary-subtle w-25 p-3">
+          Filtro
+          <hr />
+          <b>Año</b>
+          <select class="form-select" id="selectYear">
+            <option value="" disabled selected>Seleccionar...</option>
+            <option value="2"></option>
+            <option value="3"></option>
+          </select>
+          <b>Marca</b>
+          <select class="form-select" id="selectBrand">
+            <option value="" disabled selected>Seleccionar...</option>
+            <option value="2"></option>
+            <option value="3"></option>
+          </select>
+          <b>Modelo</b>
+          <select class="form-select" id="selectModel">
+            <option value="" disabled selected>Seleccionar...</option>
+            <option value="2"></option>
+            <option value="3"></option>
+          </select>
+          <b>Estado</b>
+          <select class="form-select" id="selectStatus">
+            <option selected="" disabled selected>Seleccionar...</option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+          </select>
+          <form action=""><input type="button" value="&#xf002;" />Filtrar</form>
+        </div>
+      </div>
     </div>
 
     <!-- Boostrap -->
