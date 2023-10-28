@@ -78,6 +78,21 @@ h6 {
   border-radius: 5px;
   width: 100%;
 }
+.auto {
+  height: 256px;
+}
+#shopingCart {
+  background-color: green;
+  color: #eeeeee;
+  border-radius: 5px;
+  width: 20%;
+}
+#infoCart {
+  background-color: #eeeeee;
+  color: #222;
+  border-radius: 5px;
+  width: 15%;
+}
 
 /*****************************************************************
 
