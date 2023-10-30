@@ -91,7 +91,7 @@ h6 {
   background-color: #eeeeee;
   color: #222;
   border-radius: 5px;
-  width: 15%;
+  width: 25%;
 }
 
 /*****************************************************************
@@ -131,6 +131,6 @@ h6 {
   text-decoration: none;
 }
 
-.foto{
+.foto {
   height: 200px;
 }
