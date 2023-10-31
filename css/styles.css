@@ -94,8 +94,11 @@ h6 {
   width: 30%;
 }
 
-.imgAutosHome{
-  height: 600px;
+.imgAutosHome {
+  height: 520px;
+}
+.imgAutosHomepage {
+  height: 580px;
 }
 
 /*****************************************************************
