@@ -23,9 +23,7 @@ Filtrar.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const selectYear = document.getElementById("selectYear");
 
-  
   const currentYear = new Date().getFullYear();
-
 
   for (let year = 1900; year <= currentYear; year++) {
     const option = document.createElement("option");
@@ -35,24 +33,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-
-
-
 const imgElement = document.getElementById(".auto");
 
-  // Realiza una solicitud HTTP para obtener los datos desde la URL
-  fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
-    .then(response => response.json())
-    .then(data => {
-      // Asegúrate de que el JSON tenga la estructura adecuada
-      if (data.car && data.car.image) {
-        // Asigna la ruta de la imagen al atributo src del elemento img
-        imgElement.src = data.car.image;
-      } else {
-        console.error("La estructura del JSON no es la esperada.");
-      }
-    })
-    .catch(error => {
-      console.error("Error al obtener los datos: " + error);
-    });
+// Realiza una solicitud HTTP para obtener los datos desde la URL
+fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
+  .then((response) => response.json())
+  .then((data) => {
+    // Asegúrate de que el JSON tenga la estructura adecuada
+    if (data.car && data.car.image) {
+      // Asigna la ruta de la imagen al atributo src del elemento img
+      imgElement.src = data.car.image;
+    } else {
+      console.error("La estructura del JSON no es la esperada.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error al obtener los datos: " + error);
+  });
