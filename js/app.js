@@ -2,23 +2,11 @@
 const Filtrar = document.querySelector(".filtrarAuto");
 
 const selectElement = document.getElementById(".marcas");
+document.addEventListener("DOMContentLoaded",function(){
+  
 
-Filtrar.addEventListener("click", function () {
-  fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
-    .then((response) => response.json())
-    .then((data) => {
-      // Recorre los datos y agrega opciones al select
-      data.forEach((brand) => {
-        const option = document.createElement("option");
-        option.value = brand.id; // Asigna el valor del ID de la marca
-        option.textContent = brand.name; // Asigna el nombre de la marca como texto del elemento option
-        selectElement.appendChild(option);
-      });
-    })
-    .catch((error) => {
-      console.error("Error al obtener los datos: " + error);
-    });
-});
+
+})
 
 document.addEventListener("DOMContentLoaded", function () {
   const selectYear = document.getElementById("selectYear");
@@ -39,20 +27,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-const imgElement = document.getElementById(".auto");
-
-  // Realiza una solicitud HTTP para obtener los datos desde la URL
-  fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
-    .then(response => response.json())
-    .then(data => {
-      // Asegúrate de que el JSON tenga la estructura adecuada
-      if (data.car && data.car.image) {
-        // Asigna la ruta de la imagen al atributo src del elemento img
-        imgElement.src = data.car.image;
-      } else {
-        console.error("La estructura del JSON no es la esperada.");
-      }
-    })
-    .catch(error => {
-      console.error("Error al obtener los datos: " + error);
-    });
