@@ -2,11 +2,7 @@
 const Filtrar = document.querySelector(".filtrarAuto");
 
 const selectElement = document.getElementById(".marcas");
-document.addEventListener("DOMContentLoaded",function(){
-  
-
-
-})
+document.addEventListener("DOMContentLoaded", function () {});
 
 document.addEventListener("DOMContentLoaded", function () {
   const selectYear = document.getElementById("selectYear");
@@ -21,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-<<<<<<< HEAD
-const imgElement = document.getElementById(".auto");
+const imgElement = document.querySelector(".auto");
 
 // Realiza una solicitud HTTP para obtener los datos desde la URL
 fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
@@ -39,9 +34,3 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
   });
-=======
-
-
-
-
->>>>>>> 14e57ed2f3cc4089ad8fe5b354b3909d248757b9
