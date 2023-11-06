@@ -22,7 +22,8 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
                   <img class="auto img-fluid" src="${car.image}" alt="pepito" />
               </div>
               <div class="col-12 col-lg-8">
-                  <h4>${car.model}</h4>
+                  
+              <h4>${car.brand}  ${car.model}</h4>
                   <div class="d-flex justify-content-end">
                       <h5>
                           ${car.year} | $USD${car.price_usd} |
