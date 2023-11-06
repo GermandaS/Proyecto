@@ -1,21 +1,14 @@
-// Mi código JavaScript:
-const Filtrar = document.querySelector(".filtrarAuto");
+const selectMarcas = document.querySelector(".marcas");
+const selectYear = document.querySelector("#selectYear");
+const currentYear = new Date().getFullYear();
+const prueba = document.querySelector("#prueba");
 
-const selectElement = document.getElementById(".marcas");
-document.addEventListener("DOMContentLoaded", function () {});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const selectYear = document.getElementById("selectYear");
-
-  const currentYear = new Date().getFullYear();
-
-  for (let year = 1900; year <= currentYear; year++) {
-    const option = document.createElement("option");
-    option.value = year;
-    option.text = year;
-    selectYear.appendChild(option);
-  }
-});
+for (let year = currentYear; year >= 1900; year--) {
+  const option = document.createElement("option");
+  option.value = year;
+  option.text = year;
+  selectYear.appendChild(option);
+}
 
 fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .then(function (res) {
@@ -23,16 +16,16 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   })
   .then(function (cars) {
     for (let car of cars) {
-      let carElement = `
+      const carElement = `
           <div class="row">
               <div class="col-12 col-lg-4 mb-3">
-                  <img class="auto img-fluid" src="${car.image}" alt="" />
+                  <img class="auto img-fluid" src="${car.image}" alt="pepito" />
               </div>
               <div class="col-12 col-lg-8">
                   <h4>${car.model}</h4>
                   <div class="d-flex justify-content-end">
                       <h5>
-                          ${car.year} | ${car.price_usd} |
+                          ${car.year} | $USD${car.price_usd} |
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -54,8 +47,9 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
               </div>
           </div>
       `;
-      document.insertAdjacentHTML("beforeend", carElement);
+      prueba.insertAdjacentHTML("beforeend", carElement);
     }
+    console.log("hola");
   })
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
