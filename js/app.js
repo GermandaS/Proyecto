@@ -1,4 +1,3 @@
-const selectMarcas = document.querySelector(".marcas");
 const selectYear = document.querySelector("#selectYear");
 const currentYear = new Date().getFullYear();
 const prueba = document.querySelector("#prueba");
@@ -55,3 +54,31 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
   });
+
+
+  const modelos = document.getElementById("modelos");
+const selectMarcas = document.getElementById("selectMarcas");
+
+modelos.disabled = true;
+
+selectMarcas.addEventListener("change", brandXModel);
+
+function brandXModel() {
+  const selectedMarcas = selectMarcas.value;
+  modelos.innerHTML = "<option>Seleccionar...</option>";
+  modelos.disabled = false;
+
+  fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedMarcas}`)
+    .then((res) => res.json())
+    .then((data) => {
+      for (const modelo of data) {
+        const option = document.createElement("option");
+        option.value = modelo;
+        option.textContent = modelo;
+        modelos.appendChild(option);
+      }
+    })
+    .catch((error) => {
+      console.error("Error al cargar modelos:", error);
+    });
+}
