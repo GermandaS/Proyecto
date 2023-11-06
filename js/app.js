@@ -26,7 +26,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
               <h4>${car.brand}  ${car.model}</h4>
                   <div class="d-flex justify-content-end">
                       <h5>
-                          ${car.year} | $USD${car.price_usd} |
+                          ${car.year} | $USD${car.price_usd} | ${car.rating}
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
