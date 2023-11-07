@@ -2,7 +2,7 @@ const selectYear = document.querySelector("#selectYear");
 const currentYear = new Date().getFullYear();
 const prueba = document.querySelector("#prueba");
 
-/for (let year = currentYear; year >= 1900; year--) {
+for (let year = currentYear; year >= 1900; year--) {
   const option = document.createElement("option");
   option.value = year;
   option.text = year;
@@ -54,10 +54,8 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
     console.error("Error al obtener los datos: " + error);
   });
 
-
   const modelos = document.querySelector("#modelos");
   const selectMarcas = document.querySelector("#selectMarcas");
-  const selectYear = document.querySelector("#selectYear");
   
   // Cargar marcas de automóviles
   fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
