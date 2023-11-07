@@ -78,4 +78,32 @@ function marcaXModelo() {
     .catch((error) => {
       console.error("Error al cargar modelos:", error);
     });
+
+  // Cuando se selecciona una marca, cargar modelos de automóviles
+  selectMarcas.addEventListener("change", function () {
+    const selectedBrand = selectMarcas.value;
+    if (!selectedBrand) {
+      modelos.innerHTML = ""; // Limpiar modelos si no se ha seleccionado una marca
+      return;
+    }
+
+    fetch(
+      `https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedBrand}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // Limpiar opciones anteriores
+        modelos.innerHTML = "";
+
+        data.forEach((modelo) => {
+          modelos.insertAdjacentHTML(
+            "beforeend",
+            `<option value="${modelo}">${modelo}</option>`
+          );
+        });
+      })
+      .catch((error) => {
+        console.error("Error al cargar modelos:", error);
+      });
+  });
 }
