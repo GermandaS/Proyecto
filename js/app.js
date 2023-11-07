@@ -25,7 +25,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
               <h4>${car.brand}  ${car.model}</h4>
                   <div class="d-flex justify-content-end">
                       <h5>
-                          ${car.year} | $USD${car.price_usd} | ${car.rating}
+                          ${car.year} | $USD${car.price_usd.toLocaleString()} | ${car.rating}
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -56,7 +56,9 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
 
 
 
-  const modelos = document.querySelector("#modelos");
+
+
+const modelos = document.querySelector("#modelos");
 const selectMarcas = document.querySelector("#selectMarcas");
 
 // Cargar marcas de automóviles
