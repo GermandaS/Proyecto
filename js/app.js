@@ -57,9 +57,9 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.getElementById("selectMarcas");
 
-selectMarcas.addEventListener("change", brandXModel);
+selectMarcas.addEventListener("change", marcaXModelo);
 
-function brandXModel() {
+function marcaXModelo() {
   const selectedMarcas = selectMarcas.value;
 
   fetch(
@@ -79,5 +79,3 @@ function brandXModel() {
       console.error("Error al cargar modelos:", error);
     });
 }
-
-brandXModel();
