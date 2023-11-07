@@ -55,8 +55,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
     console.error("Error al obtener los datos: " + error);
   });
 
-
-  const modelos = document.getElementById("modelos");
+const modelos = document.getElementById("modelos");
 const selectMarcas = document.getElementById("selectMarcas");
 
 modelos.disabled = true;
@@ -66,19 +65,26 @@ selectMarcas.addEventListener("change", brandXModel);
 function brandXModel() {
   const selectedMarcas = selectMarcas.value;
   modelos.innerHTML = "<option>Seleccionar...</option>";
-  modelos.disabled = false;
 
-  fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedMarcas}`)
-    .then((res) => res.json())
-    .then((data) => {
-      for (const modelo of data) {
-        const option = document.createElement("option");
-        option.value = modelo;
-        option.textContent = modelo;
-        modelos.appendChild(option);
-      }
-    })
-    .catch((error) => {
-      console.error("Error al cargar modelos:", error);
-    });
+  if (selectedMarcas === "Seleccionar...") {
+    modelos.disabled = true; // Deshabilita la lista de modelos si no se ha seleccionado una marca válida.
+  } else {
+    modelos.disabled = false; // Habilita la lista de modelos cuando se selecciona una marca válida.
+
+    fetch(
+      `https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedMarcas}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        for (const modelo of data) {
+          const option = document.createElement("option");
+          option.value = modelo;
+          option.textContent = modelo;
+          modelos.appendChild(option);
+        }
+      })
+      .catch((error) => {
+        console.error("Error al cargar modelos:", error);
+      });
+  }
 }
