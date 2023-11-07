@@ -2,7 +2,7 @@ const selectYear = document.querySelector("#selectYear");
 const currentYear = new Date().getFullYear();
 const prueba = document.querySelector("#prueba");
 
-for (let year = currentYear; year >= 1900; year--) {
+/for (let year = currentYear; year >= 1900; year--) {
   const option = document.createElement("option");
   option.value = year;
   option.text = year;
@@ -54,59 +54,30 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
     console.error("Error al obtener los datos: " + error);
   });
 
+const modelos = document.querySelector("#modelos");
+const selectMarcas = document.getElementById("selectMarcas");
 
-  const modelos = document.querySelector("#modelos");
-  const selectMarcas = document.querySelector("#selectMarcas");
-  const selectYear = document.querySelector("#selectYear");
-  
-  // Cargar marcas de automóviles
-  fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
+selectMarcas.addEventListener("change", brandXModel);
+
+function brandXModel() {
+  const selectedMarcas = selectMarcas.value;
+
+  fetch(
+    `https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedMarcas}`
+  )
     .then((res) => res.json())
-    .then((marcas) => {
-      // Limpiar opciones anteriores
-      selectMarcas.innerHTML = "";
-      // Agregar una opción predeterminada
-      selectMarcas.insertAdjacentHTML(
-        "beforeend",
-        '<option value="" disabled selected>Seleccionar...</option>'
-      );
-      // Agregar las marcas recuperadas de la API
-      marcas.forEach((marca) => {
-        selectMarcas.insertAdjacentHTML(
+    .then((data) => {
+      console.log(data);
+      for (const modelo of data) {
+        modelos.insertAdjacentHTML(
           "beforeend",
-          `<option value="${marca}">${marca}</option>`
+          `<option value="${modelo}">${modelo}</option>`
         );
-      });
+      }
     })
     .catch((error) => {
-      console.error("Error al cargar marcas:", error);
+      console.error("Error al cargar modelos:", error);
     });
-  
-  // Cuando se selecciona una marca, cargar modelos de automóviles
-  selectMarcas.addEventListener("change", function () {
-    const selectedBrand = selectMarcas.value;
-    if (!selectedBrand) {
-      modelos.innerHTML = ""; // Limpiar modelos si no se ha seleccionado una marca
-      return;
-    }
-  
-    fetch(
-      `https://ha-front-api-proyecto-final.vercel.app/models?brand=${selectedBrand}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // Limpiar opciones anteriores
-        modelos.innerHTML = "";
-  
-        data.forEach((modelo) => {
-          modelos.insertAdjacentHTML(
-            "beforeend",
-            `<option value="${modelo}">${modelo}</option>`
-          );
-        });
-      })
-      .catch((error) => {
-        console.error("Error al cargar modelos:", error);
-      });
-  });
-  
+}
+
+brandXModel();
