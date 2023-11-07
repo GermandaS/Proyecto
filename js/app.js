@@ -2,7 +2,7 @@ const selectYear = document.querySelector("#selectYear");
 const currentYear = new Date().getFullYear();
 const prueba = document.querySelector("#prueba");
 
-for (let year = currentYear; year >= 1900; year--) {
+/for (let year = currentYear; year >= 1900; year--) {
   const option = document.createElement("option");
   option.value = year;
   option.text = year;
@@ -57,9 +57,9 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.getElementById("selectMarcas");
 
-selectMarcas.addEventListener("change", marcaXModelo);
+selectMarcas.addEventListener("change", brandXModel);
 
-function marcaXModelo() {
+function brandXModel() {
   const selectedMarcas = selectMarcas.value;
 
   fetch(
@@ -79,3 +79,5 @@ function marcaXModelo() {
       console.error("Error al cargar modelos:", error);
     });
 }
+
+brandXModel();
