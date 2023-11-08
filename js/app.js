@@ -26,44 +26,44 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   })
   .then(function (cars) {
     for (let car of cars) {
-      const carElement = `
+      if (car.status === 0) {
+        const statusText = "Nuevo";  // Declarar statusText
+        const carElement = `
           <div class="row">
-              <div class="col-12 col-lg-4 mb-3">
-                  <img class="auto img-fluid" src="${car.image}" alt="" />
-              </div>
-              <div class="col-12 col-lg-8">
-                  
+            <div class="col-12 col-lg-4 mb-3 position-relative">
+              <img class="auto img-fluid" src="${car.image}" alt="">
+              <span id= "span" class="status position-absolute translate-middle badge rounded-pill ">${statusText}</span>
+            </div>
+            <div class="col-12 col-lg-8">
               <h4>${car.brand}  ${car.model}</h4>
-                  <div class="d-flex justify-content-end">
-                      <h5>
-                          ${
-                            car.year
-                          } | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(
-        car.rating
-      )}
-                          
-                      </h5>
-                  </div>
-                  <p>${car.description}</p>
-                  <button type="submit" id="shopingCart">
-                      <i class="bi bi-cart3"></i>
-                      Comprar
-                  </button>
-                  <button type="submit" id="infoCart">
-                      <i class="bi bi-plus-square"></i> Más información
-                  </button>
-                  <button type="submit" id="shareCart">
-                      <i class="bi bi-box-arrow-up-right"></i> Compartir
-                  </button>
+              <div class="d-flex justify-content-end">
+                <h5>
+                  ${car.year} | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(car.rating)}
+                </h5>
               </div>
+              <p>${car.description}</p>
+              <button type="submit" id="shopingCart">
+                <i class="bi bi-cart3"></i>
+                Comprar
+              </button>
+              <button type="submit" id="infoCart">
+                <i class="bi bi-plus-square"></i> Más información
+              </button>
+              <button type="submit" id="shareCart">
+                <i class="bi bi-box-arrow-up-right"></i> Compartir
+              </button>
+            </div>
           </div>
-      `;
-      prueba.insertAdjacentHTML("beforeend", carElement);
+        `;
+        prueba.insertAdjacentHTML("beforeend", carElement);
+      }
     }
   })
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
   });
+
+
 
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.querySelector("#selectMarcas");
