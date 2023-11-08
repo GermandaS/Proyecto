@@ -26,19 +26,27 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   })
   .then(function (cars) {
     for (let car of cars) {
-      const statusText = car.status === 1 ? "Nuevo" : "Usado";  // Declarar statusText
+      const statusText = car.status === 1 ? "Nuevo" : "Usado";
 
       const carElement = `
         <div class="row">
           <div class="col-12 col-lg-4 mb-3 position-relative">
             <img class="auto img-fluid" src="${car.image}" alt="">
-            ${car.status === 1 ? `<span id="span" class="status position-absolute translate-middle badge rounded-pill">${statusText}</span>` : ''}
+            ${
+              car.status === 1
+                ? `<span id="span" class="status position-absolute translate-middle badge rounded-pill">${statusText}</span>`
+                : ""
+            }
           </div>
           <div class="col-12 col-lg-8">
             <h4>${car.brand}  ${car.model}</h4>
             <div class="d-flex justify-content-end">
               <h5>
-                ${car.year} | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(car.rating)}
+                ${
+                  car.year
+                } | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(
+        car.rating
+      )}
               </h5>
             </div>
             <p>${car.description}</p>
@@ -61,7 +69,6 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
   });
-
 
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.querySelector("#selectMarcas");
@@ -114,16 +121,10 @@ selectMarcas.addEventListener("change", function () {
 });
 
 function filtrarAutos() {
-  
-    // Filtrar por estado (Nuevo o Usado)
-    if (selectedStatus && car.status !== selectedStatus) {
-      return false;
-    }
+  if (selectedStatus && car.status !== selectedStatus) {
+    return false;
+  }
 
-    
-  // Limpiar el contenedor antes de volver a mostrar los autos filtrados
   prueba.innerHTML = "";
-
-
-    }
- juhfdudshfoiuds  
+}
+juhfdudshfoiuds;
