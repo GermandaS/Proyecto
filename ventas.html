@@ -95,69 +95,70 @@
         </div>
       </nav>
       <div
-        id="contacto-modal"
-        class="modal fade"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Contacto</h5>
+      id="contacto-modal"
+      class="modal fade"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contacto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="https://formspree.io/f/mgejqqzb" method="POST">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  value=""
+                  class="form-control"
+                  placeholder="Ingresar nombre completo..."
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value=""
+                  class="form-control"
+                  placeholder="Ingresar Email..."
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea
+                  name="message"
+                  rows="8"
+                  cols="40"
+                  class="form-control"
+                  placeholder="Ingresar mensaje..."
+                ></textarea>
+              </div>
               <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nombre</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value=""
-                    class="form-control"
-                    placeholder="Ingresar nombre completo..."
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value=""
-                    class="form-control"
-                    placeholder="Ingresar Email..."
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Mensaje</label>
-                  <textarea
-                    name="message"
-                    rows="8"
-                    cols="40"
-                    class="form-control"
-                    placeholder="Ingresar mensaje..."
-                  ></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-success"
-                data-bs-dismiss="modal"
-              >
-                Enviar
-              </button>
-            </div>
+              type="submit"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              Enviar
+            </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+           
           </div>
         </div>
       </div>
+    </div>
     </div>
 
     <div class="container">
@@ -180,13 +181,17 @@
             <option value="1" disabled selected>Seleccionar...</option>
           </select>
           <b>Estado</b>
-<select class="form-select" id="selectStatus">
-  <option value="" selected>Todos</option>
-  <option value="Nuevo">Nuevo</option>
-  <option value="Usado">Usado</option>
-</select>
+          <select class="form-select" id="selectStatus">
+            <option value="" selected>Todos</option>
+            <option value="Nuevo">Nuevo</option>
+            <option value="Usado">Usado</option>
+          </select>
           <form class="mt-3 mb-4" action="">
-            <button class="filtrarAuto filterButton" type="submit" id="searchButton">
+            <button
+              class="filtrarAuto filterButton"
+              type="submit"
+              id="searchButton"
+            >
               <i class="fa fa-search"></i>
               Filtrar
             </button>
