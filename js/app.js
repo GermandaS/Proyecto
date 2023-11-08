@@ -26,7 +26,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   })
   .then(function (cars) {
     for (let car of cars) {
-      if (car.status === 0) {
+      if (car.status === 1) {
         const statusText = "Nuevo";  // Declarar statusText
         const carElement = `
           <div class="row">
@@ -114,3 +114,18 @@ selectMarcas.addEventListener("change", function () {
       console.error("Error al cargar modelos:", error);
     });
 });
+
+function filtrarAutos() {
+  
+    // Filtrar por estado (Nuevo o Usado)
+    if (selectedStatus && car.status !== selectedStatus) {
+      return false;
+    }
+
+    
+  // Limpiar el contenedor antes de volver a mostrar los autos filtrados
+  prueba.innerHTML = "";
+
+
+    }
+ 
