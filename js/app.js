@@ -8,7 +8,18 @@ for (let year = currentYear; year >= 1900; year--) {
   option.text = year;
   selectYear.appendChild(option);
 }
-
+function dibujarEstrellas(rating) {
+  let stars = "";
+  for (i = 0; i <= 5; i++) {
+    if (rating > i) {
+      <i class="bi bi-star-fill text-warning"></i>;
+    } else {
+      <i class="bi bi-star text-warning"></i>;
+    }
+    return stars;
+  }
+  dibujarEstrellas(rating);
+}
 fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .then(function (res) {
     return res.json();
@@ -25,12 +36,12 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
               <h4>${car.brand}  ${car.model}</h4>
                   <div class="d-flex justify-content-end">
                       <h5>
-                          ${car.year} | $USD${car.price_usd.toLocaleString()} | ${car.rating}
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
+                          ${
+                            car.year
+                          } | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(
+        rating
+      )}
+                          
                       </h5>
                   </div>
                   <p>${car.description}</p>
@@ -53,10 +64,6 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .catch((error) => {
     console.error("Error al obtener los datos: " + error);
   });
-
-
-
-
 
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.querySelector("#selectMarcas");
