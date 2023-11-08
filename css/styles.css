@@ -97,7 +97,7 @@ h6 {
 .imgAutosHome {
   height: 520px;
 }
-.imgAutosHomepage {
+#imgAutosHomepage {
   height: 100vh;
 }
 
@@ -146,10 +146,6 @@ h6 {
   width: 95%;
 }
 
-.redes{
-  color: #2980B9;
+.redes {
+  color: #2980b9;
 }
- #span{
-  background-color: orange;
-  right: 5 ;
- }
