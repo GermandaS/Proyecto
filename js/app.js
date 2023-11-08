@@ -10,16 +10,16 @@ for (let year = currentYear; year >= 1900; year--) {
 }
 function dibujarEstrellas(rating) {
   let stars = "";
-  for (i = 0; i <= 5; i++) {
+  for (let i = 0; i < 5; i++) {
     if (rating > i) {
-      <i class="bi bi-star-fill text-warning"></i>;
+      stars += '<i class="bi bi-star-fill text-warning"></i>';
     } else {
-      <i class="bi bi-star text-warning"></i>;
+      stars += '<i class="bi bi-star text-warning"></i>';
     }
-    return stars;
   }
-  dibujarEstrellas(rating);
+  return stars;
 }
+
 fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
   .then(function (res) {
     return res.json();
@@ -39,7 +39,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
                           ${
                             car.year
                           } | $USD${car.price_usd.toLocaleString()} | ${dibujarEstrellas(
-        rating
+        car.rating
       )}
                           
                       </h5>
