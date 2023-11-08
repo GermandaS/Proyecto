@@ -68,18 +68,16 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
 const modelos = document.querySelector("#modelos");
 const selectMarcas = document.querySelector("#selectMarcas");
 
-// Cargar marcas de automóviles
 fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
   .then((res) => res.json())
   .then((marcas) => {
-    // Limpiar opciones anteriores
     selectMarcas.innerHTML = "";
-    // Agregar una opción predeterminada
+
     selectMarcas.insertAdjacentHTML(
       "beforeend",
       '<option value="" disabled selected>Seleccionar...</option>'
     );
-    // Agregar las marcas recuperadas de la API
+
     marcas.forEach((marca) => {
       selectMarcas.insertAdjacentHTML(
         "beforeend",
@@ -91,11 +89,10 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
     console.error("Error al cargar marcas:", error);
   });
 
-// Cuando se selecciona una marca, cargar modelos de automóviles
 selectMarcas.addEventListener("change", function () {
   const selectedBrand = selectMarcas.value;
   if (!selectedBrand) {
-    modelos.innerHTML = ""; // Limpiar modelos si no se ha seleccionado una marca
+    modelos.innerHTML = "";
     return;
   }
 
@@ -104,7 +101,6 @@ selectMarcas.addEventListener("change", function () {
   )
     .then((res) => res.json())
     .then((data) => {
-      // Limpiar opciones anteriores
       modelos.innerHTML = "";
 
       data.forEach((modelo) => {
