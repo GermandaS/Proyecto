@@ -32,7 +32,7 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
         <div class="row">
           <div class="col-12 col-lg-4 mb-3 position-relative">
             <img class="auto img-fluid" src="${car.image}" alt="">
-            ${car.status === 1 ? `<span id="span" class="status position-absolute translate-middle badge rounded-pill">${statusText}</span>` : ''}
+            ${car.status === 1 ? `<span id="span" class="status position-absolute top-0  translate-middle badge rounded-pill">${statusText}</span>` : ''}
           </div>
           <div class="col-12 col-lg-8">
             <h4>${car.brand}  ${car.model}</h4>
